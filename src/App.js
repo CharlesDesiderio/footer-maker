@@ -1,25 +1,35 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import Builder from './components/Builder';
+import Code from './components/Code';
+import Output from './components/Output';
 
-function App() {
+const App = () => {
+
+  const initialBuilderData = {
+    className: 'footer',
+    text: 'Sample Text',
+    fontSize: '16',
+    padding: '8',
+    color: '#ffffff',
+    backgroundColor: '#000000'
+  }
+
+  const [builderData, setBuilderData] = useState(initialBuilderData)
+
+  const handleChange = (event) => {
+    let newData = builderData
+    newData[event.target.id] = event.target.value
+    setBuilderData({...newData})
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Builder data={builderData} handleChange={(event) => handleChange(event)} />
+      <Output data={builderData} />
+      <Code data={builderData} />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
