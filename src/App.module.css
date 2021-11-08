@@ -28,3 +28,14 @@ a, a:visited {
 .build div {
   width: 50%;
 }
+
+@media (max-width: 500px) {
+  .build {
+    width: 100vw;
+    flex-direction: column;
+  }
+
+  .build div {
+    width: 100%;
+  }
+}
