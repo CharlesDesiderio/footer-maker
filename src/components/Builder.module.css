@@ -1,0 +1,15 @@
+.builder {
+  padding: 1rem;
+}
+
+.builder input {
+  display: block;
+}
+
+.builder div {
+  margin-bottom: .5rem;
+}
+
+.colorPicker {
+  display: inline-block !important;
+}
